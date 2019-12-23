@@ -1,0 +1,39 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<GridPane fx:controller="sample.LoginController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <Text text="加解密"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Button fx:id="oneFile" text="单文件:"
+            GridPane.columnIndex="0" GridPane.rowIndex="1"
+            onAction="#chooseFile"/>
+
+
+    <TextField fx:id="filPath" text=" " visible="false" managed="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Button fx:id="oneDest" text="目录:"
+            GridPane.columnIndex="0" GridPane.rowIndex="2"
+            onAction="#chooseDest"/>
+
+
+    <TextField fx:id="destPath" text=" " visible="false" managed="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Button fx:id="EDCode" text="加密/解密"
+            GridPane.columnIndex="1" GridPane.rowIndex="3"
+            onAction="#EDCodeAction"/>
+
+    <TextField fx:id="process" text=" " visible="true" managed="true"
+               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <stylesheets>
+        <URL value="@Login.css"/>
+    </stylesheets>
+
+</GridPane>

@@ -1,0 +1,48 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<GridPane fx:controller="sample.LoginController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <Text text="Welcome"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Label text="User Name:"
+           GridPane.columnIndex="0" GridPane.rowIndex="1">
+    </Label>
+
+    <TextField fx:id="userName"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label fx:id="Password" text="Password:"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <PasswordField fx:id="password"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Button fx:id="logining" text="登录"
+            GridPane.columnIndex="1" GridPane.rowIndex="3"
+            onAction="#loginButtonAction"/>
+    <Button fx:id="logingUp" text="注册"
+            GridPane.columnIndex="1" GridPane.rowIndex="4"
+            onAction="#loginUPBUttonAction"/>
+
+    <TextField fx:id="help" text="V" visible="false" managed="false"
+           GridPane.columnIndex="1" GridPane.rowIndex="5">
+    </TextField>
+
+    <!--    <Text fx:id="userName"-->
+    <!--          GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6"/>-->
+    <!--    <HBox spacing="10" alignment="bottom_right"-->
+    <!--          GridPane.columnIndex="1" GridPane.rowIndex="4">-->
+    <!--        <Button text="Sign In"-->
+    <!--                onAction="#handleSubmitButtonAction1"/>-->
+    <!--    </HBox>-->
+
+    <stylesheets>
+        <URL value="@Login.css"/>
+    </stylesheets>
+
+</GridPane>
