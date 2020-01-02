@@ -35,17 +35,19 @@ root {
 }
 
 .root {
-     -fx-background-image: url("background.jpg");
+     -fx-background-image: url("dog.jpg");
 }
 
 .label {
-    -fx-font-size: 12px;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
+    -fx-font-family: "Arial Narrow";
+    /*-fx-fill: #58090f;*/
+    -fx-text-fill: #580a0f;
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
-
-#welcome-text {
+/*#welcome-text {*/
+.Text {
    -fx-font-size: 32px;
    -fx-font-family: "Arial Black";
    -fx-fill: #818181;

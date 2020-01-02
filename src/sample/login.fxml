@@ -10,6 +10,7 @@
           GridPane.columnSpan="2"/>
 
     <Label text="User Name:"
+           GridPane.columnSpan="1"
            GridPane.columnIndex="0" GridPane.rowIndex="1">
     </Label>
 
