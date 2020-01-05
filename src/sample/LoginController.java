@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.Utils.AESclass;
+import sample.Utils.ExecutorUtil;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -57,9 +59,11 @@ public class LoginController {
         File file = new File(filePath + "picturePWD.txt");
         if (file.exists()) {
             try (BufferedReader writer = new BufferedReader(new FileReader(filePath + "picturePWD.txt"))) {
-                String uName = writer.readLine();
-                String pw = writer.readLine();
+//                String uName = writer.readLine();
+                String uName = AESclass.decode(writer.readLine());
+//                String pw = writer.readLine();
                 Boolean loginFlag = true;
+                String pw = AESclass.decode(writer.readLine());
                 if (!username.equals(uName)) {
                     loginFlag = false;
                     help.setVisible(true);
@@ -81,7 +85,7 @@ public class LoginController {
 //                    }
                     stage = new Stage();
                     stage.setTitle("目录");
-                    Parent foot1 = FXMLLoader.load(getClass().getResource("sample.fxml"));
+                    Parent foot1 = FXMLLoader.load(getClass().getResource("fxml/sample.fxml"));
                     stage.setScene(new Scene(foot1, 1000, 750));
                     stage.show();
 //                    Stage primaryStage = new Stage();
@@ -111,9 +115,11 @@ public class LoginController {
         } else {
             file.mkdirs();
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath + "picturePWD.txt", true))) {
-                writer.write(username);
+//                writer.write(username);
+                writer.write(AESclass.encode(username));
                 writer.newLine();
-                writer.write(pwd);
+//                writer.write(pwd);
+                writer.write(AESclass.encode(pwd));
                 writer.newLine();
             } catch (Exception e) {
                 e.printStackTrace();

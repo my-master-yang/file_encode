@@ -35,7 +35,7 @@ root {
 }
 
 .root {
-     -fx-background-image: url("dog.jpg");
+     -fx-background-image: url("../resources/dog.jpg");
 }
 
 .label {

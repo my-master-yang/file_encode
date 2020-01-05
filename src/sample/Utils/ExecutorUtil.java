@@ -1,4 +1,4 @@
-package sample;
+package sample.Utils;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
