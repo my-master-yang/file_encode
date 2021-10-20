@@ -35,6 +35,14 @@ public class LoginController {
     Button oneDest;
     @FXML
     private TextField destPath;
+
+    //在原格式基础上添加格式，最后添加
+    @FXML
+    private TextField addFormat;
+    //在原格式基础上进去格式，最后减去
+    @FXML
+    private TextField minusFormat;
+
     @FXML
     Button EDCode;
     @FXML
@@ -48,6 +56,7 @@ public class LoginController {
     private String devDestPath;
 
     private String filePath = "C:/User/.yang/";
+//    private String filePath = System.getProperty("user.dir");
     private Stage stage;
 
     @FXML
@@ -166,6 +175,8 @@ public class LoginController {
 
     @FXML
     protected void EDCodeAction(Event event) throws IOException {
+        String addFormat1 = addFormat.getText().trim();
+        String minusFormat1 = minusFormat.getText().trim();
 
             String devFilePath = filPath.getText().trim();
             String devDestPath = destPath.getText().trim();
@@ -193,7 +204,7 @@ public class LoginController {
                         ExecutorUtil.UP_FILE_EXECUTOR.submit(() ->
                         {
                             try {
-                                encryptionPicture(a.toString(), dev);
+                                encryptionPicture(a.toString(), dev,addFormat1,minusFormat1);
                             } catch (Exception e) {
 //                                System.out.println(e);
                             }
@@ -209,7 +220,7 @@ public class LoginController {
             if (!devFilePath.equals(originFilePath) && originFilePath != null) {
                 if (!encodeFlag) {
                     encodeFlag = true;
-                    encryptionPicture(originFilePath, devFilePath);
+                    encryptionPicture(originFilePath, devFilePath,addFormat1,minusFormat1);
                 }
                 else {
                     System.out.println("NUooo");
@@ -223,7 +234,11 @@ public class LoginController {
     }
 
 
-    public static void encryptionPicture(String orignFile, String devFile) throws IOException {
+    public static void encryptionPicture(String orignFile, String devFile,String addFormat, String minusFormat) throws IOException {
+        if(!(addFormat.contains("添加格式")||minusFormat.contains("减去格式"))){
+            devFile+=addFormat;
+            orignFile = orignFile.substring(0,orignFile.lastIndexOf(minusFormat)-1);
+        }
         FileInputStream fis = new FileInputStream(orignFile);
         FileOutputStream fos = new FileOutputStream(devFile);
         int s;

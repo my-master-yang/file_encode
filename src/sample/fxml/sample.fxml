@@ -25,6 +25,12 @@
     <TextField fx:id="destPath" text=" " visible="false" managed="false"
                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
+    <TextField fx:id="addFormat" text="添加格式" visible="true" managed="true"
+               GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+
+    <TextField fx:id="minusFormat" text="减去格式" visible="true" managed="true"
+               GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+
     <Button fx:id="EDCode" text="加密/解密"
             GridPane.columnIndex="1" GridPane.rowIndex="3"
             onAction="#EDCodeAction"/>
